@@ -1,16 +1,17 @@
 import csv 
-
-def loadCSV(file_path, skip_header=True):
+from claasas import *
+def loadCSV(file_path):
         data = []
-        new_data=[]
         with open(file_path, mode ='r',encoding="utf8")as f:
-            csvFile = csv.reader(f)
-            if skip_header:
-               columns = next(csvFile)  # Skip header
-           
+            csvFile = csv.DictReader(f)
             for line in csvFile:
-                data.append(dict(zip(columns, line)))
+                data.append(dict(line))
                 
-        print(data)
+                
+        return(data)
     
-# file=loadCSV('Hayal_No_Status.csv')
+
+file=loadCSV('Hayal_No_Status.csv')
+
+
+sorted_file = sorted(file, key=lambda x: int(x['distance']))
