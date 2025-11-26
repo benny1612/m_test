@@ -1,5 +1,5 @@
 class Soldier:
-    def __init__(self,soldier_number,first_name,last_name,gender,city,distance,status):
+    def __init__(self,soldier_number,first_name,last_name,gender,city,distance,status=None):
         self.soldier_number=soldier_number
         self.first_name=first_name
         self.last_name=last_name

@@ -9,7 +9,22 @@ def loadCSV(file_path):
                 
                 
         return(data)
+file_r=loadCSV("Hayal_No_Status.csv")
+
+
+
+sorted_file = sorted(file_r, key=lambda x: int(x['distance']),reverse=True)
+
+
+def csv_to_obg(sorted_file):
+    soldier_list=[]
+    for s in sorted_file:
+        soldier = Soldier(s["soder_nomber"], s["first_name"],s["last_name"],s["gender"],s["city"],s["distance"])
+        soldier_list.append(soldier)
+    return soldier_list
     
+
+ 
 
 def shibutz(sorted_file):
     while Dorm.conter_dorm<=2:
