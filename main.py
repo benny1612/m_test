@@ -10,7 +10,8 @@ async def create_upload_file(file: UploadFile | None = None):
     if not file:
         return {"message": "No upload file sent"}
     else:
-        file_r=loadCSV('Hayal_No_Status.csv')
-        return {"filename": file_r}
+        file_r=loadCSV(file.filename)
+        sorted_file = sorted(file_r, key=lambda x: int(x['distance']))
+        return {"sorted_file" :sorted_file}
         
         
