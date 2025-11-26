@@ -1,19 +1,30 @@
 class Soldier:
-    def __init__(self,soldier_number,first_name,last_name,gender,city,distance):
+    def __init__(self,soldier_number,first_name,last_name,gender,city,distance,status):
         self.soldier_number=soldier_number
         self.first_name=first_name
         self.last_name=last_name
         self.gender=gender
         self.city=city
         self.distance=distance
-    def str(self):
-        return f"soldier_number{self.soldier_number},first_name{self.first_name},last_name{self.last_name}gender{self.gender}city{self.city}distance{self.distance}"
+        self.status=status
     
 class Dorm:
+    conter_dorm=0
+    def __init__(self,dorm):
+        self.dorm=dorm
+        Dorm.conter_dorm+=1        
+
+class Rooms(Dorm):
     conter_rooms=0
-    conter_pepole_in_romm=0
-    def __init__(self,rooms,pepole_in_room):
+    def __init__(self, dorm,rooms):
+        super().__init__(dorm)
         self.rooms=rooms
-        conter_rooms+=1
+        Rooms.conter_rooms+=1
+
+class Pepole_in_room(Rooms):
+    conter_pepole_in_room=0
+    def __init__(self, dorm, rooms,pepole_in_room):
         self.pepole_in_room=pepole_in_room
-        conter_pepole_in_romm+=1
+        super().__init__(dorm, rooms)
+        Pepole_in_room.conter_pepole_in_room+=1
+    
